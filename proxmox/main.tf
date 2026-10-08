@@ -36,7 +36,7 @@ resource "proxmox_virtual_environment_vm" "rocky-fleet" {
     ip_config {
       ipv4 {
         address = "${each.value.ip}/24"
-        gateway = "172.20.1.254"
+        gateway = "192.168.0.254"
       }
     }
     user_account {
