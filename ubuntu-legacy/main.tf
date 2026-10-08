@@ -1,8 +1,8 @@
 locals {
   k8s_nodes = {
-    "controlplane"    = { vm_id = 401, ip = "172.20.15.170" }
-    "node01" = { vm_id = 402, ip = "172.20.15.171" }
-    "node02" = { vm_id = 403, ip = "172.20.15.172" }
+    "controlplane"    = { vm_id = 401, ip = "192.168.0.10" }
+    "node01" = { vm_id = 402, ip = "192.168.0.11" }
+    "node02" = { vm_id = 403, ip = "192.168.0.12" }
   }
 }
 
@@ -48,7 +48,7 @@ resource "proxmox_virtual_environment_vm" "k8s_node" {
     ip_config {
       ipv4 {
         address = "${each.value.ip}/24"
-        gateway = "172.20.15.254"
+        gateway = "192.168.0.254"
       }
     }
 
